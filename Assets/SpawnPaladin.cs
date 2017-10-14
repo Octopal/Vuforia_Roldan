@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnPaladin : MonoBehaviour 
 {
@@ -26,6 +27,7 @@ public class SpawnPaladin : MonoBehaviour
 					if(paladinPrefab != null)
 					{
 						GameObject paladin = GameObject.Instantiate(paladinPrefab, hit.point, hit.transform.rotation);
+						paladin.GetComponent<NavMeshAgent>().enabled = true;
 					}
 					else
 					{

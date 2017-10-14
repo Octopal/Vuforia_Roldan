@@ -12,8 +12,9 @@ public class DragonBehaviour : MonoBehaviour {
 	[SerializeField] private float fireDuration = 1;
 	[SerializeField] private float fireCooldown = 1;
 
-	private PaladinBehaviour paladin;
+	private PaladinBehaviour currentPaladin;
 	private Animator anim;
+	private bool breathingFire;
 
 	void Awake()
 	{
@@ -22,10 +23,8 @@ public class DragonBehaviour : MonoBehaviour {
 
 	void Update () 
 	{
-		if(paladin == null)
+		if(currentPaladin == null)
 			SearchForPaladin();
-		
-		print(paladin == null);
 	}
 
 	void SearchForPaladin()
@@ -34,40 +33,44 @@ public class DragonBehaviour : MonoBehaviour {
         int i = 0;
         while (i < hitColliders.Length)
         {
-			if(hitColliders[i].transform.gameObject.name == "Paladin")
+			if(hitColliders[i].transform.gameObject.CompareTag("Paladin"))
 			{
-				paladin = hitColliders[i].transform.GetComponent<PaladinBehaviour>();
-				StartCoroutine(BreatheFire(paladin));
+				PaladinBehaviour paladin = hitColliders[i].transform.GetComponent<PaladinBehaviour>();
+				if(!breathingFire && paladin.health > 0 && !paladin.onFire)
+				{
+					currentPaladin = paladin;
+					StartCoroutine(BreatheFire());
+				}
 			}
             i++;
         }
-
-		// RaycastHit hit;
-
-        // if (Physics.Raycast(raycastPoint.position, raycastPoint.forward, out hit, 100.0f))
-		// 	print(hit.transform.name);
-        //     if(hit.transform.gameObject.name == "Paladin")
-		// 	{
-		// 		paladin = hit.transform.GetComponent<PaladinBehaviour>();
-		// 		StartCoroutine(BreatheFire(paladin));
-		// 	}
 	}
 
-	IEnumerator BreatheFire(PaladinBehaviour paladin)
+	IEnumerator BreatheFire()
 	{
-		transform.LookAt(paladin.transform.position);
+		breathingFire = true;
+
+		//Rotate
+		transform.LookAt(currentPaladin.transform.position);
+
+		//Anim
 		anim.SetBool("Breathe Fire", true);
+		
+		//FX
 		fireBreathFX.SetActive(true);
-		StartCoroutine(paladin.SetOnFire());
+
+		//Trigger
+		StartCoroutine(currentPaladin.SetOnFire());
+
 		yield return new WaitForSeconds(fireDuration);
+
 		anim.SetBool("Breathe Fire", false);
 		fireBreathFX.SetActive(false);
+
 		yield return new WaitForSeconds(fireCooldown);
 
-		if(paladin.health > 0)	
-			StartCoroutine(BreatheFire(paladin));
-		else
-			paladin = null;
+		breathingFire = false;
+		currentPaladin = null;
 	}
 
 	public IEnumerator TakeDamage()

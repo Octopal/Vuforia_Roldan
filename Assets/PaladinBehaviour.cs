@@ -5,6 +5,7 @@ using UnityEngine;
 public class PaladinBehaviour : MonoBehaviour {
 
 	public int health;
+	public bool onFire;
 
 	[SerializeField] private Transform raycastPoint;
 
@@ -29,6 +30,8 @@ public class PaladinBehaviour : MonoBehaviour {
 
 	public IEnumerator SetOnFire()
 	{
+		onFire = true;
+		
 		health--;
 		if(health <= 0)
 			anim.SetBool("Dead", true);
