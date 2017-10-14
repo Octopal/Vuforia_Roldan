@@ -1,41 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PaladinBehaviour : MonoBehaviour {
 
-	public int health;
-	public bool onFire;
-
-	[SerializeField] private Transform raycastPoint;
+	[SerializeField] private int maxHealth = 3;
 
 	private Animator anim;
-	private DragonBehaviour dragon;
+	private NavMeshAgent agent;
+	private DragonBehaviour targetDragon;
+	private int detectionRadius = 10;
+	
+	public bool OnFire { get; set; }
+	public int Health { get; set; }
 
 	void Awake () 
 	{
 		anim = GetComponent<Animator>();
+		agent = GetComponent<NavMeshAgent>();
+	}
+	
+	void Start()
+	{
+		Health = maxHealth;
 	}
 	
 	void Update () 
 	{
-		if(dragon == null)
+		if(targetDragon == null)
 			SearchForDragon();
+		else
+		{
+			
+		}
 	}
+
+
 
 	public void SearchForDragon()
 	{
-
-	}
-
-	public IEnumerator SetOnFire()
-	{
-		onFire = true;
-		
-		health--;
-		if(health <= 0)
-			anim.SetBool("Dead", true);
-
-		yield return new WaitForSeconds(1);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
+        int i = 0;
+        while (i < hitColliders.Length)
+        {
+			if(hitColliders[i].transform.gameObject.CompareTag("Dragon"))
+			{
+				DragonBehaviour dragon = hitColliders[i].transform.GetComponent<DragonBehaviour>();
+				if(dragon.Health > 0)
+				{
+					targetDragon = dragon;
+					agent.SetDestination(dragon.transform.position);
+				}
+			}
+            i++;
+        }
 	}
 }

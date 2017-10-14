@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DragonBehaviour : MonoBehaviour {
 
-	[SerializeField] private Transform raycastPoint;
 	[SerializeField] private GameObject fireBreathFX;
 
 	[SerializeField] private float detectionRadius = 3;
-
-	[SerializeField] private float fireDuration = 1;
+	[SerializeField] private int maxHealth = 10;
+	[SerializeField] private float fireDuration = 2;
 	[SerializeField] private float fireCooldown = 1;
 
-	private PaladinBehaviour currentPaladin;
+
+	public int Health { get; set; }
+
+	private PaladinBehaviour targetPaladin;
 	private Animator anim;
 	private bool breathingFire;
 
@@ -21,9 +23,14 @@ public class DragonBehaviour : MonoBehaviour {
 		anim = GetComponent<Animator>();
 	}
 
+	void Start()
+	{
+		Health = maxHealth;
+	}
+
 	void Update () 
 	{
-		if(currentPaladin == null)
+		if(targetPaladin == null)
 			SearchForPaladin();
 	}
 
@@ -35,10 +42,11 @@ public class DragonBehaviour : MonoBehaviour {
         {
 			if(hitColliders[i].transform.gameObject.CompareTag("Paladin"))
 			{
+				print("Found Pally");
 				PaladinBehaviour paladin = hitColliders[i].transform.GetComponent<PaladinBehaviour>();
-				if(!breathingFire && paladin.health > 0 && !paladin.onFire)
+				if(!breathingFire && paladin.Health > 0 && !paladin.OnFire)
 				{
-					currentPaladin = paladin;
+					targetPaladin = paladin;
 					StartCoroutine(BreatheFire());
 				}
 			}
@@ -51,7 +59,7 @@ public class DragonBehaviour : MonoBehaviour {
 		breathingFire = true;
 
 		//Rotate
-		transform.LookAt(currentPaladin.transform.position);
+		transform.LookAt(targetPaladin.transform.position);
 
 		//Anim
 		anim.SetBool("Breathe Fire", true);
@@ -60,7 +68,7 @@ public class DragonBehaviour : MonoBehaviour {
 		fireBreathFX.SetActive(true);
 
 		//Trigger
-		StartCoroutine(currentPaladin.SetOnFire());
+		targetPaladin.OnFire = true;
 
 		yield return new WaitForSeconds(fireDuration);
 
@@ -70,7 +78,7 @@ public class DragonBehaviour : MonoBehaviour {
 		yield return new WaitForSeconds(fireCooldown);
 
 		breathingFire = false;
-		currentPaladin = null;
+		targetPaladin = null;
 	}
 
 	public IEnumerator TakeDamage()
