@@ -9,7 +9,7 @@ public class DragonBehaviour : MonoBehaviour {
 	[SerializeField] private float detectionRadius = 3;
 	[SerializeField] private int maxHealth = 10;
 	[SerializeField] private float fireDuration = 2;
-	[SerializeField] private float fireCooldown = 1;
+	[SerializeField] private float fireCooldown = 4;
 
 
 	public int Health { get; set; }
@@ -63,12 +63,9 @@ public class DragonBehaviour : MonoBehaviour {
 
 		//Anim
 		anim.SetBool("Breathe Fire", true);
-		
-		//FX
-		fireBreathFX.SetActive(true);
 
 		//Trigger
-		targetPaladin.OnFire = true;
+		targetPaladin.SetOnFire();
 
 		yield return new WaitForSeconds(fireDuration);
 
@@ -85,4 +82,18 @@ public class DragonBehaviour : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(1);
 	}
+
+	//WHY DON'T ANIMATION EVENTS TAKE BOOLS AS A PARAM?!?!?
+	void ToggleFireBreathingFX(string s)
+	{
+		//I'M SORRY 
+		if(s == "true")
+			fireBreathFX.SetActive(true);
+		else if(s == "false")
+			fireBreathFX.SetActive(false);
+		else
+			Debug.LogWarning("Animation Event string: \"" + s + "\" invalid");
+	}
+
+
 }
