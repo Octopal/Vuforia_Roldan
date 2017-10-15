@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/DragonVSPaladin_Octopal.unity
+    guid: c8eda182c11dd574e9e4b28b3e0e6359

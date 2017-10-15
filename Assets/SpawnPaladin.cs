@@ -17,16 +17,15 @@ public class SpawnPaladin : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hit)) 
 			{
-				Debug.Log ("Name = " + hit.collider.name);
-				Debug.Log ("Tag = " + hit.collider.tag);
-				Debug.Log ("Hit Point = " + hit.point);
-				Debug.Log ("Object position = " + hit.collider.gameObject.transform.position);
-
+				// Debug.Log ("Name = " + hit.collider.name);
+				// Debug.Log ("Tag = " + hit.collider.tag);
+				// Debug.Log ("Hit Point = " + hit.point);
+				// Debug.Log ("Object position = " + hit.collider.gameObject.transform.position);
 				if(hit.collider.CompareTag("PlayArea"))
 				{
 					if(paladinPrefab != null)
 					{
-						GameObject paladin = GameObject.Instantiate(paladinPrefab, hit.point, hit.transform.rotation);
+						GameObject paladin = GameObject.Instantiate(paladinPrefab, hit.point, hit.transform.rotation, this.transform);
 						paladin.GetComponent<NavMeshAgent>().enabled = true;
 					}
 					else

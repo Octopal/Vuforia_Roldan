@@ -8,7 +8,7 @@ public class PaladinBehaviour : MonoBehaviour {
 
 	[SerializeField] private int maxHealth = 3;
 	[SerializeField] private GameObject onFireFX;
-	private float chanceToBlock = 0;
+	private float chanceToBlock = 50;
 
 	private Animator anim;
 	private NavMeshAgent agent;
@@ -46,7 +46,7 @@ public class PaladinBehaviour : MonoBehaviour {
 
 		if(targetDragon != null && agent != null)
 		{
-			print(Vector3.Distance(transform.position, targetDragon.transform.position) + "  :  isStopped = " + agent.isStopped);
+			//print(Vector3.Distance(transform.position, targetDragon.transform.position) + "  :  isStopped = " + agent.isStopped);
 		}
 	}
 
