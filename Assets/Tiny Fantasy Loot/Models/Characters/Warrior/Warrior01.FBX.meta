@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: 046e8c72a77f1c44d896d8ea9ce13651
+timeCreated: 1434574641
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Hero01
+    100002: Hero01 1
+    100004: Hero01Head
+    100006: Hero01LCalf
+    100008: Hero01LCollarbone
+    100010: Hero01LFoot
+    100012: Hero01LForearm
+    100014: Hero01LPalm
+    100016: Hero01LPlatform
+    100018: Hero01LThigh
+    100020: Hero01LUpperarm
+    100022: Hero01Neck
+    100024: Hero01Pelvis
+    100026: Hero01RCalf
+    100028: Hero01RCollarbone
+    100030: Hero01RFoot
+    100032: Hero01RForearm
+    100034: Hero01Ribcage
+    100036: Hero01RIKTarget
+    100038: Hero01RPalm
+    100040: Hero01RPlatform
+    100042: Hero01RThigh
+    100044: Hero01RUpperarm
+    100046: Hero01Spine1
+    100048: Hero01Spine2
+    100050: //RootNode
+    400000: Hero01
+    400002: Hero01 1
+    400004: Hero01Head
+    400006: Hero01LCalf
+    400008: Hero01LCollarbone
+    400010: Hero01LFoot
+    400012: Hero01LForearm
+    400014: Hero01LPalm
+    400016: Hero01LPlatform
+    400018: Hero01LThigh
+    400020: Hero01LUpperarm
+    400022: Hero01Neck
+    400024: Hero01Pelvis
+    400026: Hero01RCalf
+    400028: Hero01RCollarbone
+    400030: Hero01RFoot
+    400032: Hero01RForearm
+    400034: Hero01Ribcage
+    400036: Hero01RIKTarget
+    400038: Hero01RPalm
+    400040: Hero01RPlatform
+    400042: Hero01RThigh
+    400044: Hero01RUpperarm
+    400046: Hero01Spine1
+    400048: Hero01Spine2
+    400050: //RootNode
+    4300000: Hero01
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Hero01
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Hero01Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01Spine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01Spine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LCollarbone
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RCollarbone
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01LPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hero01RPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Warrior01(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01 1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .50000006, y: -.50000006, z: -.49999997, w: .49999997}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01LPlatform
+      position: {x: -.406462073, y: -2.82848678e-09, z: -.2322689}
+      rotation: {x: .638493121, y: -.638493121, z: -.303852916, w: .303852916}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01RIKTarget
+      position: {x: .589595199, y: .947442532, z: -.0446302891}
+      rotation: {x: .107184157, y: -.444213063, z: -.618586898, w: .63916868}
+      scale: {x: 1, y: .999999046, z: 1}
+      transformModified: 1
+    - name: Hero01RPlatform
+      position: {x: .362748295, y: -2.82849655e-09, z: .193597078}
+      rotation: {x: .5, y: -.5, z: -.5, w: .5}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01Pelvis
+      position: {x: 6.45729941e-08, y: 1.36215627, z: -.0386050157}
+      rotation: {x: .49912703, y: -.500871599, z: -.499126911, w: .50087148}
+      scale: {x: .99999994, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Hero01Spine1
+      position: {x: -.0616475679, y: -.0047166869, z: -9.53674295e-09}
+      rotation: {x: 9.23871994e-07, y: 2.98023224e-08, z: .0625561774, w: -.998041511}
+      scale: {x: .999999881, y: .999999762, z: .999999881}
+      transformModified: 1
+    - name: Hero01Spine2
+      position: {x: -.286640853, y: 0, z: -4.76837148e-09}
+      rotation: {x: -6.85453358e-07, y: 1.34110437e-07, z: -.295119196, w: -.955460429}
+      scale: {x: 1.00000036, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: Hero01Ribcage
+      position: {x: -.323561102, y: 0, z: 1.19209287e-09}
+      rotation: {x: 1.78813934e-07, y: -1.49011612e-08, z: -.236466646, w: .971639693}
+      scale: {x: .999999762, y: 1, z: 1}
+      transformModified: 1
+    - name: Hero01LCollarbone
+      position: {x: .0234129336, y: .136909172, z: .0406178795}
+      rotation: {x: .059913747, y: .755732596, z: .140542686, w: .636809468}
+      scale: {x: 1.00000036, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: Hero01LUpperarm
+      position: {x: -.257138431, y: 0, z: 1.52587887e-07}
+      rotation: {x: -.00457170513, y: -.0599672869, z: -.144449919, w: .98768276}
+      scale: {x: 1, y: .999999881, z: 1.00000024}
+      transformModified: 1
+    - name: Hero01LForearm
+      position: {x: -.378828526, y: -7.62939436e-08, z: 0}
+      rotation: {x: -.0010612011, y: -.0213757008, z: -.0300800949, w: .999318421}
+      scale: {x: .999999881, y: 1.00000036, z: .999999881}
+      transformModified: 1
+    - name: Hero01LPalm
+      position: {x: -.361755759, y: 0, z: 7.62939436e-08}
+      rotation: {x: -.310968816, y: .369153023, z: -.0570478328, w: .873939395}
+      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000012}
+      transformModified: 1
+    - name: Hero01RCollarbone
+      position: {x: .0234130863, y: .136909172, z: -.0406178795}
+      rotation: {x: .0599137396, y: .755732358, z: -.140542641, w: -.636809766}
+      scale: {x: 1, y: .999999821, z: 1.00000036}
+      transformModified: 1
+    - name: Hero01RUpperarm
+      position: {x: -.257138431, y: 0, z: 0}
+      rotation: {x: .0045718248, y: .0599666461, z: -.144449845, w: .987682819}
+      scale: {x: 1.00000024, y: 1.0000006, z: 1.00000012}
+      transformModified: 1
+    - name: Hero01RForearm
+      position: {x: -.378828585, y: 0, z: 7.62939436e-08}
+      rotation: {x: .00106129039, y: .0213760119, z: -.0300801061, w: .999318361}
+      scale: {x: 1.00000024, y: .99999994, z: .999999881}
+      transformModified: 1
+    - name: Hero01RPalm
+      position: {x: -.361755639, y: 0, z: 0}
+      rotation: {x: .310968816, y: -.369153053, z: -.0570478141, w: .873939395}
+      scale: {x: 1, y: 1, z: .999999881}
+      transformModified: 1
+    - name: Hero01Neck
+      position: {x: -.00107131957, y: .0551147461, z: -1.66893006e-08}
+      rotation: {x: -4.470348e-08, y: -2.98023188e-08, z: -.132689238, w: .991157651}
+      scale: {x: 1.00000036, y: .999999881, z: 1.00000048}
+      transformModified: 1
+    - name: Hero01Head
+      position: {x: -.163763732, y: -7.62939436e-08, z: 1.19209287e-09}
+      rotation: {x: 0, y: 0, z: -.132689238, w: -.991157711}
+      scale: {x: 1, y: 1.00000012, z: .999999881}
+      transformModified: 1
+    - name: Hero01LThigh
+      position: {x: -.0232230369, y: .0633200705, z: .118646845}
+      rotation: {x: -.00317932619, y: .999348879, z: -.00716602709, w: .0352181159}
+      scale: {x: 1.00000036, y: 1.00000024, z: 1.00000024}
+      transformModified: 1
+    - name: Hero01LCalf
+      position: {x: -.605934381, y: 3.81469718e-08, z: -3.81469718e-08}
+      rotation: {x: 8.62628222e-05, y: .00100672245, z: .0809710622, w: .996715963}
+      scale: {x: .999999464, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Hero01LFoot
+      position: {x: -.630605757, y: -2.38418574e-09, z: -3.81469718e-08}
+      rotation: {x: -.0663564503, y: -.0162368063, z: -.755702794, w: .651342094}
+      scale: {x: .999999642, y: 1.00000024, z: .999999642}
+      transformModified: 1
+    - name: Hero01RThigh
+      position: {x: -.0232231133, y: .0633200705, z: -.118646845}
+      rotation: {x: -.00317952037, y: .999348938, z: .00716587901, w: -.0352180004}
+      scale: {x: 1.00000012, y: .99999994, z: 1.00000024}
+      transformModified: 1
+    - name: Hero01RCalf
+      position: {x: -.605934322, y: 7.62939436e-08, z: 0}
+      rotation: {x: -.000116258845, y: -.000881612184, z: .0809720978, w: .996715963}
+      scale: {x: .999999583, y: 1, z: 1.00000024}
+      transformModified: 1
+    - name: Hero01RFoot
+      position: {x: -.630605757, y: 1.90734859e-08, z: 7.62939436e-08}
+      rotation: {x: .0663354695, y: .0160559993, z: -.755698621, w: .651353657}
+      scale: {x: .999999821, y: 1, z: .999999702}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
