@@ -93,6 +93,12 @@ public class PlayAreaTrackableEventHandler : MonoBehaviour, ITrackableEventHandl
 
 	protected virtual void BuildPlayArea()
 	{
+		playArea.SetParent(this.transform, false);
+		playArea.transform.localRotation = Quaternion.identity;
+		playArea.transform.localPosition = Vector3.zero;
+		//unparent PlayArea to remove jittering from target
+		playArea.SetParent(null);
+		//build navmesh
 		playSurface.BuildNavMesh();
 		navMeshBuildPosition = transform.position;
 	}
