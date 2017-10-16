@@ -16,6 +16,7 @@ public class DragonBehaviour : MonoBehaviour {
 
 	private PaladinBehaviour targetPaladin;
 	private Animator anim;
+	private bool isDead;
 	private bool breathingFire;
 
 	void Awake()
@@ -30,7 +31,7 @@ public class DragonBehaviour : MonoBehaviour {
 
 	void Update () 
 	{
-		if(targetPaladin == null)
+		if(targetPaladin == null && !isDead)
 			SearchForPaladin();
 	}
 
@@ -42,16 +43,34 @@ public class DragonBehaviour : MonoBehaviour {
         {
 			if(hitColliders[i].transform.gameObject.CompareTag("Paladin"))
 			{
-				print("Found Pally");
 				PaladinBehaviour paladin = hitColliders[i].transform.GetComponent<PaladinBehaviour>();
-				if(!breathingFire && paladin.Health > 0 && !paladin.OnFire)
+				if(!breathingFire && paladin.Health > 0)
 				{
 					targetPaladin = paladin;
 					StartCoroutine(BreatheFire());
 				}
+				else if(targetPaladin != null && targetPaladin.AttackingDragon)
+				{
+					print("being attacked");
+				}
+				
 			}
             i++;
         }
+	}
+
+	public void TakeDamage(int amount)
+	{
+		Health -= amount;
+		anim.SetTrigger("Hit");
+		if(Health == 0)
+			Die();
+	}
+
+	void Die()
+	{
+		anim.SetTrigger("Dead");
+		isDead = true;
 	}
 
 	IEnumerator BreatheFire()
