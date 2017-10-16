@@ -8,8 +8,8 @@ public class DragonBehaviour : MonoBehaviour {
 
 	[SerializeField] private float detectionRadius = 3;
 	[SerializeField] private int maxHealth = 10;
-	[SerializeField] private float fireDuration = 2;
-	[SerializeField] private float fireCooldown = 4;
+	private float fireDuration = 2;
+	private float fireCooldown = 3;
 
 
 	public int Health { get; set; }
@@ -51,7 +51,7 @@ public class DragonBehaviour : MonoBehaviour {
 				}
 				else if(targetPaladin != null && targetPaladin.AttackingDragon)
 				{
-					print("being attacked");
+					//being attacked
 				}
 				
 			}

@@ -18,7 +18,9 @@ public class PaladinBehaviour : MonoBehaviour {
 	private DragonBehaviour targetDragon;
 	private int detectionRadius = 10;
 	private AttackAnim attackAnim;
+	private TauntAnim tauntAnim;
 	private bool hasPathToDragon = false;
+	private bool isDead = false;
 
 	public int Health { get; set; }
 	public bool AttackingDragon { get; set; }
@@ -27,11 +29,18 @@ public class PaladinBehaviour : MonoBehaviour {
 	{
 		anim = GetComponent<Animator>();
 		agent = GetComponent<NavMeshAgent>();
+		RandomizeAttackAnim();
+		RandomizeTauntAnim();
 	}
 	
 	void RandomizeAttackAnim()
 	{
-		attackAnim = (AttackAnim)Random.Range(0, 6);
+		attackAnim = (AttackAnim)Random.Range(0, 7);
+	}
+
+	void RandomizeTauntAnim()
+	{
+		tauntAnim = (TauntAnim)Random.Range(0, 3);
 	}
 
 	void Start()
@@ -41,40 +50,31 @@ public class PaladinBehaviour : MonoBehaviour {
 	
 	void Update () 
 	{
-		//IF we don't see a dragon, look for a dragon.
-		if(targetDragon == null)
-			SearchForDragon();
-		//IF pally reaches dragon, switch to melee and start swinging.
-		else if(targetDragon != null && agent != null)
+		if(!isDead)
 		{
-			print(agent.isStopped);
-			if(!AttackingDragon && agent.remainingDistance > 0 && agent.remainingDistance - agent.stoppingDistance <= 0 && hasPathToDragon)
+			//If we don't see a dragon, look for a dragon.
+			if(targetDragon == null)
+				SearchForDragon();
+
+			//If pally reaches dragon, switch to melee and start swinging.
+			else if(targetDragon != null && agent != null)
 			{
-				AttackingDragon = true;
-				anim.SetBool("AttackingDragon", AttackingDragon);
+				print(agent.isStopped);
+				if(!AttackingDragon && agent.remainingDistance > 0 && agent.remainingDistance - agent.stoppingDistance <= 0 && hasPathToDragon)
+				{
+					AttackingDragon = true;
+					anim.SetBool("AttackingDragon", AttackingDragon);
+				}
 			}
-		}
 
-		//Melee attack if it's time
-		if(AttackingDragon && Time.time > meleeTimestamp)
-		{
-							
-			meleeTimestamp = Time.time + meleeCooldown;
-			if(Health > 0)
-				StartCoroutine(MeleeAttackDragon());
-		}
-	}
-
-
-	public void SetOnFire()
-	{
-		if(Random.Range(1, 101) < chanceToBlock)
-		{
-			StartCoroutine(BlockFire());
-		}
-		else
-		{
-			StartCoroutine(SetAblaze());
+			//Melee attack if it's time
+			if(AttackingDragon && Time.time > meleeTimestamp)
+			{
+								
+				meleeTimestamp = Time.time + meleeCooldown;
+				if(Health > 0)
+					StartCoroutine(MeleeAttackDragon());
+			}
 		}
 	}
 
@@ -100,8 +100,8 @@ public class PaladinBehaviour : MonoBehaviour {
 	IEnumerator EngageDragon()
 	{
 		transform.LookAt(targetDragon.transform.position);
-		anim.SetTrigger("Point");
-		yield return new WaitForSeconds(1);
+		anim.SetTrigger(tauntAnim.ToString());
+		yield return new WaitForSeconds(1.2f);
 		agent.SetDestination(targetDragon.transform.position);
 		hasPathToDragon = true;
 		anim.SetTrigger("Run");
@@ -111,10 +111,15 @@ public class PaladinBehaviour : MonoBehaviour {
 	{
 		if(targetDragon.Health > 0)
 		{
-			anim.SetTrigger(this.attackAnim.ToString());
+			anim.SetTrigger(attackAnim.ToString());
 			RandomizeAttackAnim();
 			yield return new WaitForSeconds(.3f);
 			targetDragon.TakeDamage(1);
+		}
+		else
+		{
+			RandomizeTauntAnim();
+			anim.SetTrigger(tauntAnim.ToString());
 		}
 	}
 	
@@ -138,6 +143,19 @@ public class PaladinBehaviour : MonoBehaviour {
 		agent.isStopped = true;
 		anim.SetTrigger("OnFire");
 		Health = 0;
+		isDead = true;
+	}
+	
+	public void SetOnFire()
+	{
+		if(Random.Range(1, 101) < chanceToBlock)
+		{
+			StartCoroutine(BlockFire());
+		}
+		else
+		{
+			StartCoroutine(SetAblaze());
+		}
 	}
 }
 
@@ -150,4 +168,11 @@ public enum AttackAnim
 	Slash5,
 	Slash6,
 	Kick
+}
+
+public enum TauntAnim
+{
+	Taunt,
+	Taunt2,
+	Taunt3
 }
